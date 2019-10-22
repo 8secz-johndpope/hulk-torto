@@ -15,6 +15,8 @@
 		2F60E1E222631E0F00357E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F60E1E022631E0F00357E98 /* Main.storyboard */; };
 		2F60E1E422631E0F00357E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F60E1E322631E0F00357E98 /* Assets.xcassets */; };
 		2F60E1E722631E0F00357E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F60E1E522631E0F00357E98 /* LaunchScreen.storyboard */; };
+		47D2EB6B235F2BDD006A77E2 /* RKJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2EB6A235F2BDD006A77E2 /* RKJoint.swift */; };
+		47D2EB6D235F2D15006A77E2 /* RKJointTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2EB6C235F2D15006A77E2 /* RKJointTree.swift */; };
 		718E55BC2289F8FF00A9B13B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 718E55BB2289F8FF00A9B13B /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		2F60E1E322631E0F00357E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F60E1E622631E0F00357E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F60E1EB22631E0F00357E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D2EB6A235F2BDD006A77E2 /* RKJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKJoint.swift; sourceTree = "<group>"; };
+		47D2EB6C235F2D15006A77E2 /* RKJointTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKJointTree.swift; sourceTree = "<group>"; };
 		718E55BB2289F8FF00A9B13B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D34ABD00D34AB41000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D3749170D374E6D000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				2F60E1E322631E0F00357E98 /* Assets.xcassets */,
 				2F60E1E522631E0F00357E98 /* LaunchScreen.storyboard */,
 				2F60E1EB22631E0F00357E98 /* Info.plist */,
+				47D2EB6A235F2BDD006A77E2 /* RKJoint.swift */,
+				47D2EB6C235F2D15006A77E2 /* RKJointTree.swift */,
 			);
 			path = BodyDetection;
 			sourceTree = "<group>";
@@ -171,8 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C71C056228FA198003621C4 /* Utilities.swift in Sources */,
+				47D2EB6B235F2BDD006A77E2 /* RKJoint.swift in Sources */,
 				2F60E1DD22631E0F00357E98 /* ViewController.swift in Sources */,
 				0C0AADE42290B23100E0502A /* MessageLabel.swift in Sources */,
+				47D2EB6D235F2D15006A77E2 /* RKJointTree.swift in Sources */,
 				2F60E1DB22631E0F00357E98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
