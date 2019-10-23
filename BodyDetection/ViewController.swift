@@ -208,22 +208,22 @@ class ViewController: UIViewController, ARSessionDelegate {
             if hulkJointTree != nil {
                 print("\nPrinting Hulk BodyTracked Tree")
                 hulkJointTree!.updateJoints(from: hulk?.joints ?? [])
-                hulkJointTree!.printJoints()
+                hulkJointTree!.printJointsBFS()
             }
             if characterJointTree != nil {
-                print("\nPrinting Character BodyTracked Tree")
+                print("\nPrinting Character BodyTracked Tree. Total joints: \(String(describing: characterJointTree!.treeSize))")
                 characterJointTree!.updateJoints(from: character?.joints ?? [])
-                characterJointTree!.printJoints()
+                characterJointTree!.printJointsBFS()
             }
             if hulkModelJointTree != nil {
                 print("\nPrinting Hulk Model Tree")
                 hulkModelJointTree!.updateJoints(from: hulkModel?.joints ?? [])
-                hulkModelJointTree!.printJoints()
+                hulkModelJointTree!.printJointsBFS()
             }
             if characterModelJointTree != nil {
                 print("\nPrinting Character Model Tree")
                 characterModelJointTree!.updateJoints(from: characterModel?.joints ?? [])
-                characterModelJointTree!.printJoints()
+                characterModelJointTree!.printJointsBFS()
             }
             
         }
@@ -270,7 +270,7 @@ class ViewController: UIViewController, ARSessionDelegate {
 }
 
 
-extension ModelEntity {
+extension HasModel {
     var joints: [(String, Transform)] {
         get {
             return Array(zip(self.jointNames, self.jointTransforms)) ?? []
@@ -279,10 +279,3 @@ extension ModelEntity {
 }
 
 
-extension BodyTrackedEntity {
-    var joints: [(String, Transform)] {
-        get {
-            return Array(zip(self.jointNames, self.jointTransforms)) ?? []
-        }
-    }
-}

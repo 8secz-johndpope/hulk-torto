@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.1.1 (swiftlang-1100.0.274.1 clang-1100.0.33.9)"
+options: "484856deb5d6683f4fb8afe9980670ff"
+build_time: [1571841424, 478823000]
+inputs:
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/Utilities.swift": [9223372036, 854775807]
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/RKJoint.swift": [9223372036, 854775807]
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/ViewController.swift": [9223372036, 854775807]
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/MessageLabel.swift": [9223372036, 854775807]
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/RKJointTree.swift": [9223372036, 854775807]
+  "/Users/enzomaruffa/Documents/projetos/Rascunhos/hulk-torto/BodyDetection/AppDelegate.swift": [9223372036, 854775807]
