@@ -31,7 +31,7 @@ class RKJointTree {
     }
     
     // Every joint must have a unique name
-    init(from list: [(String, Transform)]) {
+    init(from list: [(String, Transform)], usingAbsoluteTranslation: Bool) {
         
         // Separates our joint name in a list with it`s original hierarchy
         var hierachicalJoints = list.map( { ($0.0.components(separatedBy: "/"), $0.1)} )
@@ -61,10 +61,19 @@ class RKJointTree {
                 
                 // If somehow a joint is repeated, we just update it's position
                 if let existingJoint = ancestorJoint.childrenJoints.first(where: { $0.name == jointName} )  {
-                    existingJoint.relativeTranslation = joint.1.translation
+                    if usingAbsoluteTranslation {
+                        existingJoint.relativeTranslation = joint.1.translation - ancestorJoint.absoluteTranslation
+                    } else {
+                        existingJoint.relativeTranslation = joint.1.translation
+                    }
                     print("Repeated joint found with hierarchy \(joint.0)")
                 } else {
-                    ancestorJoint.addChild(name: jointName ?? "(nil)", translation: joint.1.translation)
+                    
+                    if usingAbsoluteTranslation {
+                        ancestorJoint.addChild(name: jointName ?? "(nil)", translation: joint.1.translation - ancestorJoint.absoluteTranslation)
+                    } else {
+                        ancestorJoint.addChild(name: jointName ?? "(nil)", translation: joint.1.translation)
+                    }
                 }
             } else {
                 print("Error creating RKJointTree. Ancestor for joint with hierarchy \(joint.0) not found")
@@ -74,7 +83,7 @@ class RKJointTree {
     }
     
     ///TODO: Optimize since we already know where each joint is in the tree
-    func updateJoints(from list: [(String, Transform)]) {
+    func updateJoints(from list: [(String, Transform)], usingAbsoluteTranslation: Bool) {
         
         // Separates our joint name in a list with it`s original hierarchy
         var hierachicalJoints = list.map( { ($0.0.components(separatedBy: "/"), $0.1)} )
@@ -84,7 +93,19 @@ class RKJointTree {
         for joint in hierachicalJoints {
             if let jointName = joint.0.last,
                 let existingJoint = rootJoint?.findSelfOrDescendantBy(name: jointName) {
-                existingJoint.relativeTranslation = joint.1.translation
+                
+//                print("\nUpdating joint...")
+//                print("    Updating \(jointName) from \(existingJoint.relativeTranslation) and \(existingJoint.absoluteTranslation) using absolute as \(usingAbsoluteTranslation).")
+//                print("    New translation is \(joint.1.translation).")
+                
+                if usingAbsoluteTranslation {
+                    existingJoint.relativeTranslation = joint.1.translation - (existingJoint.parent?.absoluteTranslation ?? .zero)
+                } else {
+                    existingJoint.relativeTranslation = joint.1.translation
+                }
+                
+//                print("    Updated \(jointName) to \(existingJoint.relativeTranslation) and \(existingJoint.absoluteTranslation)")
+                
             }
         }
     }
@@ -131,7 +152,7 @@ class RKJointTree {
 
 /// + operator overloading to allow the sum of two RKJointTree
 /// - Parameter left: The leftmost tree
-/// - Parameter right: the rightmot tree
+/// - Parameter right: the rightmost tree
 /// - Returns: A new tree if the trees are equivalent.  Otherwise, returns  nil
 func + (left: RKJointTree, right: RKJointTree) -> RKJointTree? {
     // Sum two trees only if they have the same structure

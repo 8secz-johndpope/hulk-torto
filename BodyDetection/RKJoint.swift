@@ -23,8 +23,7 @@ class RKJoint {
 //    }
     
     /**
-        A computed  SIMD3<Float> property recursevely calculated with the joint's absolute position (relative to the scene anchor). 
-        - TODO: Optimize to use stored properties instead of recursively calculating it each time
+        A computed property SIMD3<Float> with the joint's absolute position (relative to the scene anchor).
      */
     var absoluteTranslation: SIMD3<Float> {
         get {
